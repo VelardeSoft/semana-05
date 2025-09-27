@@ -6,23 +6,25 @@
     </div>
     <div class="language-selector">
       <button
-        @click="changeLanguage('en')"
-        :class="{ active: currentLocale === 'en' }"
-      >EN</button>
+          @click="changeLanguage('en')"
+          :class="{ active: currentLocale === 'en' }"
+      >EN
+      </button>
       <span>|</span>
       <button
-        @click="changeLanguage('es')"
-        :class="{ active: currentLocale === 'es' }"
-      >ES</button>
+          @click="changeLanguage('es')"
+          :class="{ active: currentLocale === 'es' }"
+      >ES
+      </button>
     </div>
   </header>
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue';
-import { useI18n } from 'vue-i18n';
+import {ref, onMounted} from 'vue';
+import {useI18n} from 'vue-i18n';
 
-const { locale } = useI18n();
+const {locale} = useI18n();
 const currentLocale = ref(locale.value);
 
 const changeLanguage = (lang) => {

@@ -2,16 +2,6 @@
   <div class="home-view">
     <h2 class="page-title">{{ $t('craftBreweries') }}</h2>
 
-    <div class="search-container">
-      <input
-        type="text"
-        v-model="searchQuery"
-        :placeholder="$t('searchBreweries')"
-        @input="debounceSearch"
-        class="search-input"
-      />
-    </div>
-
     <div v-if="loading" class="loading-container">
       <p>{{ $t('loading') }}</p>
     </div>
@@ -22,18 +12,18 @@
 
     <div v-else class="breweries-grid">
       <brewery-card
-        v-for="brewery in breweries"
-        :key="brewery.id"
-        :brewery="brewery"
+          v-for="brewery in breweries"
+          :key="brewery.id"
+          :brewery="brewery"
       />
     </div>
   </div>
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue';
+import {ref, onMounted} from 'vue';
 import BreweryCard from '../presentation/brewery-card.component.vue';
-import { BreweryService } from '../application/brewery.service';
+import {BreweryService} from '../application/brewery.service';
 
 const breweryService = new BreweryService();
 const breweries = ref([]);
@@ -91,12 +81,6 @@ onMounted(() => {
   font-size: 2rem;
   color: #2c3e50;
   text-align: center;
-  margin-bottom: 2rem;
-}
-
-.search-container {
-  display: flex;
-  justify-content: center;
   margin-bottom: 2rem;
 }
 

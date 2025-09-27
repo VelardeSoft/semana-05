@@ -2,15 +2,15 @@
   <div class="brewery-card">
     <div class="image-container">
       <img
-        v-if="brewery.getDomainFromUrl() && !imageError"
-        :src="brewery.getLogoUrl()"
-        :alt="brewery.name"
-        @error="handleImageError"
+          v-if="brewery.getDomainFromUrl() && !imageError"
+          :src="brewery.getLogoUrl()"
+          :alt="brewery.name"
+          @error="handleImageError"
       >
       <img
-        v-else
-        src="../../assets/placeholder-brewery.svg"
-        alt="Brewery logo placeholder"
+          v-else
+          src="../../assets/placeholder-brewery.svg"
+          alt="Brewery logo placeholder"
       >
     </div>
     <div class="card-content">
@@ -21,17 +21,17 @@
       </div>
       <div class="card-actions">
         <a
-          v-if="brewery.website_url"
-          :href="brewery.website_url"
-          target="_blank"
-          class="website-button"
+            v-if="brewery.website_url"
+            :href="brewery.website_url"
+            target="_blank"
+            class="website-button"
         >
           {{ $t('visitWebsite') }}
         </a>
         <a
-          :href="brewery.getLandingPageUrl()"
-          target="_blank"
-          class="landing-button"
+            :href="brewery.getLandingPageUrl()"
+            target="_blank"
+            class="landing-button"
         >
           {{ $t('viewDetails') }}
         </a>
@@ -41,7 +41,7 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import {ref} from 'vue';
 
 const props = defineProps({
   brewery: {
