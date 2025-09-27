@@ -2,8 +2,5 @@
 </script>
 
 <template>
-  <div class="card flex justify-center">
-    <pv-button label="Verify" />
-  </div>
+  <router-view />
 </template>
-

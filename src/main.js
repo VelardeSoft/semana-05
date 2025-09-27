@@ -5,6 +5,7 @@ import PrimeVue from 'primevue/config';
 import Aura from '@primeuix/themes/aura';
 import 'primeicons/primeicons.css'
 import "primeflex/primeflex.css"
+import router from './router'
 
 import Button from "primevue/button"
 
@@ -14,6 +15,7 @@ app.use(PrimeVue, {
         preset: Aura
     }
 });
+app.use(router); // Usamos el router en la aplicación
 
 app.component('pv-button', Button);
 
