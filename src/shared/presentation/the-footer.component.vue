@@ -1,6 +1,7 @@
 <template>
   <footer class="footer">
-    <p>&copy; 2024 Your Company</p>
+    <p>Copyright © 2025 Craft Beer International Association, inc All rights reserved.</p>
+    <p>Developed by U20211C221 - Velarde Gonzales, Néstor Hernán</p>
   </footer>
 </template>
 

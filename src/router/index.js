@@ -1,14 +1,22 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import MainLayout from '../shared/presentation/main-layout.component.vue'
+import BreweriesView from '../brewery/presentation/breweries-view.component.vue'
 
 const routes = [
   {
-    path: '/', component: MainLayout,
+    path: '/',
+    component: MainLayout,
     children: [
       {
-        path: '', name: 'Home', component: () => import('../views/Home.vue')
+        path: '',
+        name: 'home',
+        component: BreweriesView
+      },
+      {
+        path: 'breweries',
+        name: 'breweries',
+        component: BreweriesView
       }
-      // Aquí puedes agregar más rutas hijo que se mostrarán dentro del layout
     ]
   }
 ]
