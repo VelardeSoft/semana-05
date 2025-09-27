@@ -2,15 +2,15 @@
   <div class="brewery-card">
     <div class="image-container">
       <img
-          v-if="brewery.getDomainFromUrl() && !imageError"
-          :src="brewery.getLogoUrl()"
-          :alt="brewery.name"
-          @error="handleImageError"
+        v-if="brewery.getDomainFromUrl() && !imageError"
+        :src="brewery.getLogoUrl()"
+        :alt="brewery.name"
+        @error="handleImageError"
       >
       <img
-          v-else
-          src="../../assets/placeholder-brewery.svg"
-          alt="Brewery logo placeholder"
+        v-else
+        src="../../assets/placeholder-brewery.svg"
+        alt="Brewery logo placeholder"
       >
     </div>
     <div class="card-content">
@@ -20,28 +20,18 @@
         <p><strong>{{ $t('location') }}:</strong> {{ brewery.city }}, {{ brewery.state }}, {{ brewery.country }}</p>
       </div>
       <div class="card-actions">
-        <a
-            v-if="brewery.website_url"
-            :href="brewery.website_url"
-            target="_blank"
-            class="website-button"
-        >
-          {{ $t('visitWebsite') }}
-        </a>
-        <a
-            :href="brewery.getLandingPageUrl()"
-            target="_blank"
-            class="landing-button"
-        >
-          {{ $t('viewDetails') }}
-        </a>
+        <pv-button
+          v-if="brewery.website_url"
+          :label="$t('visitWebsite')"
+          @click="openBreweryWebsite"
+        />
       </div>
     </div>
   </div>
 </template>
 
 <script setup>
-import {ref} from 'vue';
+import { ref } from 'vue';
 
 const props = defineProps({
   brewery: {
@@ -54,6 +44,12 @@ const imageError = ref(false);
 
 const handleImageError = () => {
   imageError.value = true;
+};
+
+const openBreweryWebsite = () => {
+  if (props.brewery.website_url) {
+    window.open(props.brewery.website_url, '_blank');
+  }
 };
 </script>
 
@@ -109,8 +105,7 @@ const handleImageError = () => {
 
 .card-actions {
   display: flex;
-  justify-content: space-between;
-  margin-top: 1rem;
+  justify-content: center;
 }
 
 .website-button,

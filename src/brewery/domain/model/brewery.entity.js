@@ -1,7 +1,4 @@
-/**
- * Entidad Brewery que representa una cervecería artesanal
- * @class
- */
+
 export class Brewery {
     /**
      * @param {Object} props - Propiedades de la cervecería
